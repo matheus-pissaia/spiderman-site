@@ -1,0 +1,157 @@
+header {
+  width: 100%;
+  padding-top: 16px;
+  z-index: 800;
+  position: fixed;
+}
+
+.navbar {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  max-width: 96px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+
+  li {
+    margin-left: 24px;
+  }
+
+  @include responsive(s) {
+    display: none;
+  }
+}
+
+.navlink {
+  display: inline-block;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: $gray-3;
+
+  padding: 8px 16px;
+
+  position: relative;
+
+  transition: all .5s ease;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 50%;
+
+    transition: .5s ease;
+
+    transform: translate3d(-15%,0,0);
+
+    margin-top: 8px;
+    width: 2px;
+    height: 0px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, rgba(234, 29, 34, 0) 0%, #EA1D22 100%);
+  }
+
+  &:hover {
+    color: $white-light;
+
+    &::after {
+      height: 40px;
+    }
+  }
+}
+
+.bx {
+  height: 40px;
+  width: 40px;
+
+  display: none;
+  cursor: pointer;
+
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 33%;
+    left: 12%;
+
+    width: 75%;
+    height: 2px;
+    border-radius: 2px;
+
+    background-color: $white;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+
+    position: absolute;
+    top: 57%;
+    left: 12%;
+
+    width: 75%;
+    height: 2px;
+    border-radius: 2px;
+
+    background-color: $white;
+  }
+
+  @include responsive(s) {
+    display: block;
+  }
+}
+
+.nav-socialmedia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    cursor: pointer;
+
+    margin-left: 16px;
+
+    width: 28px;
+
+    path, circle {
+      transition: .5s ease;
+    }
+
+    &:hover {
+      path, circle {
+        fill: $red-light;
+        transform: translate3d(0, -2px, 0);
+      }
+    }
+  }
+
+  @include responsive(s) {
+    display: none;
+  }
+}
